@@ -15,25 +15,21 @@
 <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <script type="text/babel">
   const root = document.getElementById("root");
-  function Title(){
-    return (
-      <h3 id="title" onMouseEnter={() => console.log("마우스위에 있어!")}> 
-        나는 제목이야
-        </h3>
-    );
+  let counter = 0;
+  function countUp() {
+    counter = counter +1;
+    render();
   }
-  const Button = () => (
-    <button style={{ backgroundColor: "tomato" }} onClick={() => console.log("나 클릭됐어!")}> 
-      나는 버튼이야!
-    </button>
-  );
 
-  const Container = (
+  function render() {
+    ReactDOM.render(<Container />, root);
+  }
+  const Container = () => (
     <div>
-      <Title />
-      <Button />
+      <h3>Total Clicks: {counter}</h3>
+      <button onClick={countUp}>클릭해봐!</button>
     </div>
-  )
-  ReactDOM.render(Container, root);
+  );
+  render();
 </script>
 </html>
