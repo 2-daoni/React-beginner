@@ -15,21 +15,20 @@
 <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <script type="text/babel">
   const root = document.getElementById("root");
-  let counter = 0;
-  function countUp() {
-    counter = counter +1;
-    render();
-  }
 
-  function render() {
-    ReactDOM.render(<Container />, root);
-  }
-  const Container = () => (
-    <div>
+  function App() {
+    const [counter, setCounter] = React.useState(0);
+    const onClick = () => {
+      //setCounter(counter + 1);
+      setCounter((current) => current + 1);
+    }
+    return (
+      <div>
       <h3>Total Clicks: {counter}</h3>
-      <button onClick={countUp}>클릭해봐!</button>
+      <button onClick={onClick}>클릭해봐!</button>
     </div>
-  );
-  render();
+    )
+  }
+  ReactDOM.render(<App />, root);
 </script>
 </html>
