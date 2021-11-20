@@ -17,17 +17,20 @@
   const root = document.getElementById("root");
 
   function App() {
-    const [counter, setCounter] = React.useState(0);
-    const onClick = () => {
-      //setCounter(counter + 1);
-      setCounter((current) => current + 1);
+    const [minutes, setMinutes] = React.useState();
+    const onChange = (event) => {
+      setMinutes(event.target.value);
     }
     return (
       <div>
-      <h3>Total Clicks: {counter}</h3>
-      <button onClick={onClick}>클릭해봐!</button>
-    </div>
-    )
+        <h1>Super Converter</h1>
+        <label htmlFor="minute">Minutes</label>
+        <input value={minutes} id="minute" placeholder = "분" type="number" onChange={onChange}  min="0"/>
+        <h4>입력하신 숫자 {minutes}</h4>
+        <label htmlFor="hour">Hour</label>
+        <input id="hour" placeholder="시간" type="number" min="0"/>
+      </div>
+    );
   }
   ReactDOM.render(<App />, root);
 </script>
