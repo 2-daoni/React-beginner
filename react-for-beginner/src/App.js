@@ -1,19 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-function Hello() {
-  useEffect(() => {
-    console.log('생성됨 :)');
-    return () => console.log('파괴됨 :(');
-  }, []);
-  return <h1>안녕하세요!</h1>;
-}
 function App() {
-  const [showing, setShowing] = useState(false);
-  const onClick = () => setShowing((prev) => !prev);
+  const [todo, setTodo] = useState('');
+  const [todos, setTodos] = useState([]);
+  const onChange = (event) => setTodo(event.target.value);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (todo === '') {
+      return;
+    }
+    setTodo('');
+    setTodos((currentArray) => [todo, ...currentArray]);
+  };
   return (
     <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>{showing ? 'Hide' : 'Show'}</button>
+      <h1>내가 해야 할 일 {todos.length}</h1>
+      <form onSubmit={onSubmit}>
+        <input onChange={onChange} value={todo} type="text" placeholder="해야 할 일을 적어주세요!" />
+        <button>할거야!</button>
+      </form>
+      <hr />
+      <ul>
+        {todos.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
