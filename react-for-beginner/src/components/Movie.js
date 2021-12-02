@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Movie({ Img, title, year, summary, genres }) {
   return (
     <div>
       <img src={Img} alt={title} />
-      <h2>{title}</h2>
+      <h2>
+        <Link to="/info"> {title} </Link>
+      </h2>
       <h3>{year}</h3>
       <p>{summary}</p>
       <ul>
@@ -16,7 +19,7 @@ function Movie({ Img, title, year, summary, genres }) {
   );
 }
 
-Movie.PropTypes = {
+Movie.propTypes = {
   Img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,

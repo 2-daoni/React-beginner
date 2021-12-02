@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Movie from '../components/Movie';
 
 function Home() {
@@ -13,7 +13,15 @@ function Home() {
     getMovies();
   }, []);
 
-  return <div>{loading ? <h1>Loading...</h1> : movies.map((movie) => <Movie key={movie.id} Img={movie.medium_cover_image} title={movie.title} summary={movie.summary} genres={movie.genres} />)}</div>;
+  return (
+    <div>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        movies.map((movie) => <Movie key={movie.id} Img={movie.medium_cover_image} title={movie.title} year={movie.year} summary={movie.summary} genres={movie.genres} />)
+      )}
+    </div>
+  );
 }
 
 export default Home;
