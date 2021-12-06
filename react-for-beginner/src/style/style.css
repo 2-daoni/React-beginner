@@ -1,8 +1,102 @@
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
 }
 
+body {
+  background-color: black;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 1px;
+}
+
+.loading,
+.blink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 4em;
+}
+
+.blink {
+  animation: blink-effect 1s step-end infinite;
+  margin: 300px 0 10px 0;
+}
+
 .main-title {
   text-align: center;
+  color: oldlace;
+  font-size: 4.5em;
+  letter-spacing: 3px;
+  margin-top: 30px;
+}
+
+.red {
+  color: rgb(199, 20, 20);
+}
+
+.movie_container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.movie {
+  text-align: center;
+  padding: 10px;
+  width: 400px;
+  margin-top: 10px;
+  margin: 10px 10px 0 10px;
+  background-color: rgba(16, 16, 16, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.movie > img:hover {
+  transform: translateY(-5px);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+li:not(:first-child)::before {
+  content: '/ ';
+}
+
+a {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+
+button {
+  font-weight: 600;
+  font-size: 1em;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border: 1px solid red;
+  background-color: rgba(16, 16, 16, 0.6);
+  color: red;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+button:hover {
+  background-color: red;
+  color: black;
 }

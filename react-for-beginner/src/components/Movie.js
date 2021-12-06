@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function Movie({ id, Img, title, year, summary, genres }) {
+function Movie({ id, Img, title, year, genres }) {
   return (
-    <div>
+    <div className="movie">
       <img src={Img} alt={title} />
-      <h2>
+      <h1>
         <Link to={`/info/${id}`}> {title} </Link>
-      </h2>
+      </h1>
       <h3>{year}</h3>
-      <p>{summary}</p>
       <ul>
         {genres.map((genre) => (
-          <li key={genre}>{genre}</li>
+          <li key={genre}>{genre} </li>
         ))}
       </ul>
+      <button>예매하기</button>
     </div>
   );
 }
