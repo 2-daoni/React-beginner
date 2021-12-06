@@ -6,10 +6,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/info/:id" element={<Detail />}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/info/:id`} element={<Detail />}></Route>
       </Routes>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />}></Route>
       </Routes>
     </Router>
   );
