@@ -9,11 +9,7 @@ function Movie({ id, Img, title, year, genres }) {
         <Link to={`/info/${id}`}> {title} </Link>
       </h1>
       <h3>{year}</h3>
-      <ul>
-        {genres.map((genre) => (
-          <li key={genre}>{genre} </li>
-        ))}
-      </ul>
+      <ul>{genres && genres.map((genre) => <li key={genre}>{genre} </li>)}</ul>
       <button>예매하기</button>
     </div>
   );
